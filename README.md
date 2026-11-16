@@ -71,3 +71,13 @@ Evidence paths cannot escape the record directory, including through symlinks. T
 - [Contributing](CONTRIBUTING.md)
 
 CI installs the package, runs the test suite, exercises the complete example workflow and uploads its synthetic bundle on Python 3.10–3.13. The existing [license](LICENSE) is preserved.
+
+## Interactive browser app
+
+The `web/` directory contains a responsive benchmark studio with circuit preview, background-worker simulation, probability charts, resource/baseline inputs, a local record library, JSON/CSV/Markdown exports, and SHA-256 evidence comparison. Serve with `python -m http.server 8000 --directory web` and open `http://localhost:8000`. Run web model checks with `node web/tests/model.test.mjs`. Use localhost or HTTPS for modules, workers and Web Crypto.
+
+The browser implements Python-compatible integer-seeded MT19937 sampling; parity tests compare complete results against Python across multiple seeds/circuits. Derived resource integers beyond JavaScript's safe integer range are rejected with a direction to use the Python CLI. Numerical boundary differences may still occur across runtimes.
+
+Records stay on the current browser and origin. Export regularly; no cross-device, GitHub or CLI synchronization is configured. Record JSON exports work with the CLI. Web result/report exports are summaries, not CLI evidence bundles. Original evidence files are never uploaded or retained by the app, and imported records do not re-verify them. The form creates synthetic/simulation records; hardware observation records can be imported with their evidence declarations and original files retained for CLI verification.
+
+Private hosted app: https://researchos-tect-quantum-benchmarking.troturn31.chatgpt.site

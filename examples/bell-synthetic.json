@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "bell-synthetic-001",
+  "title": "Ideal Bell-state benchmark with illustrative resource assumptions",
+  "owner": "example-only",
+  "hypothesis": "An ideal H followed by CX produces equal 00 and 11 probabilities; seeded finite shots approximate this distribution.",
+  "workload_reference": "docs/MODEL.md#ideal-simulator",
+  "data_kind": "synthetic",
+  "seed": 42,
+  "shots": 4096,
+  "circuit": {"qubits": 2, "gates": [{"gate": "h", "target": 0}, {"gate": "cx", "control": 0, "target": 1}]},
+  "expected_probabilities": {"00": 0.5, "11": 0.5},
+  "quality_tvd_limit": 0.05,
+  "resources": {
+    "logical_qubits": 2,
+    "logical_depth": 2,
+    "cycles_per_layer": 10,
+    "physical_qubits_per_logical": 1000,
+    "factory_physical_qubits": 0,
+    "cycle_time_us": 1,
+    "classical_pre_s": 0.01,
+    "classical_post_s": 0.01,
+    "logical_error_per_qubit_cycle": 1e-9,
+    "assumption_reference": "Illustrative accounting fixture only; no architecture, compiler or experimental calibration"
+  },
+  "classical_baseline": {
+    "runtime_s": 0.001,
+    "tvd": 0,
+    "same_problem_and_quality": true,
+    "method": "Fictional timing fixture; not measured",
+    "reference": "docs/MODEL.md#runtime-comparison"
+  },
+  "observations": null,
+  "evidence": []
+}

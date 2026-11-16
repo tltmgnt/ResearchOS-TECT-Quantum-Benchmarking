@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "researchos-tect-quantum-benchmarking"
+version = "0.1.0"
+description = "Reproducible quantum benchmarks and assumption-linked resource accounting"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+dependencies = []
+
+[project.scripts]
+researchos-qbi = "researchos_qbi.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["researchos_qbi*"]
